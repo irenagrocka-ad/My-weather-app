@@ -1,5 +1,9 @@
 body {
   background-image: url("images/rainbow.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   font-family: "Roboto", sans-serif;
 }
@@ -117,6 +121,7 @@ main {
   justify-content: space-between;
   align-items: center;
   margin: 10px 0 10px 0;
+  padding: 0px;
 }
 .daily-weather-details {
   background-color: #c0afeb;

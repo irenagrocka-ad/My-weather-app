@@ -2,12 +2,83 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
+    <title>Rainbow Weather App</title>
   </head>
   <body>
-    <h1>Hello</h1>
+    <header>
+      <form>
+        <lord-icon
+          src="https://cdn.lordicon.com/iikoxwld.json"
+          trigger="hover"
+          style="width: 30px; height: 30px"
+        >
+        </lord-icon>
+        <input
+          type="search"
+          id="city"
+          name="city"
+          placeholder="Enter a city..."
+          required
+        />
+        <input type="submit" value="Submit" value="Search" />
+      </form>
+      <h1 class="city-name">Wroclaw</h1>
+      <div class="day">Saturday 13:00, sunny</div>
+      <div class="humidity">
+        humidity: <strong> 69% </strong> ,
+        <span class="wind"> Wind: <strong> 5 km/h </strong> </span>
+      </div>
+    </header>
+    <main>
+      <p class="current-temp">☀️0°C</p>
+      <ul>
+        <li>
+          Sun 🌤️
+          <div>
+            <span class="temp-day low-temp"> <strong> -2°C </strong></span>
+            <span class="temp-day high-temp"> 2°C </span>
+          </div>
+        </li>
+        <li>
+          Mon 🌧️
+          <div>
+            <span class="temp-day low-temp"> <strong> -5°C </strong></span>
+            <span class="temp-day high-temp"> 2°C </span>
+          </div>
+        </li>
+        <li>
+          Tue 🌤️
+          <div>
+            <span class="temp-day low-temp"> <strong> -2°C </strong></span>
+            <span class="temp-day high-temp"> 2°C </span>
+          </div>
+        </li>
+        <li>
+          Wed 🌧️
+          <div>
+            <span class="temp-day low-temp"> <strong> 11°C </strong> </span>
+            <span class="temp-day high-temp"> 4°C </span>
+          </div>
+        </li>
+        <li>
+          Thu 🌨️
+          <div>
+            <span class="temp-day low-temp"> <strong> 6°C </strong></span>
+            <span class="temp-day high-temp"> 1°C </span>
+          </div>
+        </li>
+        <li>
+          Fri 🌧️
+          <div>
+            <span class="temp-day low-temp"> <strong> 7°C </strong></span>
+            <span class="temp-day high-temp"> 3°C </span>
+          </div>
+        </li>
+      </ul>
+    </main>
     <footer>
       <p>
         This project was coded by

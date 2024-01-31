@@ -21,6 +21,9 @@ body {
   padding: 30px;
   overflow-y: scroll;
 }
+.weather-app ::-webkit-scrollbar-track {
+  background-color: transparent; /* Make the scrollbar track transparent */
+}
 
 header {
   padding: 0 0 30px 0;

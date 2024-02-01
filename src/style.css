@@ -73,7 +73,10 @@ header {
 .weather-app-city {
   margin: 0;
   font-size: 38px;
-  line-height: 48px;
+  line-height: 52px;
+  margin-left: 20px;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 1;
 }
 .city-and-image {
   display: flex;
@@ -103,6 +106,8 @@ img:hover {
   line-height: 24px;
   font-weight: 500;
   margin-left: 20px;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 1;
 }
 .weather-app-details:hover {
   transform: scale(1.2);
@@ -117,11 +122,17 @@ img:hover {
   margin-top: 75px;
   margin-right: 30px;
   justify-content: right;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 1;
 }
 
-.weather-app-icon {
-  font-size: 70px;
-  margin-top: 10px;
+#current-weather-icon {
+  border-color: none;
+  box-shadow: none;
+  width: 125px;
+  height: 125px;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 1;
 }
 
 .weather-app-temperature {

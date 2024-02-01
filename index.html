@@ -42,7 +42,7 @@
         <div class="weather-app-data">
           <div>
             <div class="city-and-image">
-              <h1 class="weather-app-city" id="current-city">Rainbow City</h1>
+              <h1 class="weather-app-city" id="current-city"></h1>
               <img src="src/images/rainbow.jpg" alt="City image" />
             </div>
             <p class="weather-app-details">
@@ -50,8 +50,8 @@
               <span id="current-description">Scattered clouds</span>
               <br />
               <br />
-              Humidity: <strong id="current-humidity-value">66%</strong>, Wind:
-              <strong id="current-wind-speed">3.13km/h</strong>
+              Humidity: <strong id="current-humidity-value">%</strong>, Wind:
+              <strong id="current-wind-speed">km/h</strong>
             </p>
           </div>
           <div class="weather-app-temperature-container">
@@ -61,9 +61,10 @@
                 src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
               />
             </div>
-            <div class="weather-app-temperature" id="current-temperature-value">
-              12
-            </div>
+            <div
+              class="weather-app-temperature"
+              id="current-temperature-value"
+            ></div>
             <div class="weatehr-app-unit">°C</div>
           </div>
         </div>
@@ -72,7 +73,11 @@
         <ul class="daily-weather-container">
           <div class="daily-weather-details day-1">
             <li>
-              Sun 🌤️
+              Sun
+              <img
+                class="daily-weather-icon"
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              />
               <div>
                 <span class="temp-day low-temp"> <strong> -2/</strong></span>
                 <span class="temp-day high-temp">2°C</span>
@@ -81,7 +86,11 @@
           </div>
           <div class="daily-weather-details day-2">
             <li>
-              Mon 🌧️
+              Mon
+              <img
+                class="daily-weather-icon"
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              />
               <div>
                 <span class="temp-day low-temp"> <strong> -5/</strong></span>
                 <span class="temp-day high-temp">2°C</span>
@@ -90,7 +99,11 @@
           </div>
           <div class="daily-weather-details day-3">
             <li>
-              Tue 🌤️
+              Tue
+              <img
+                class="daily-weather-icon"
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              />
               <div>
                 <span class="temp-day low-temp"> <strong>-2/</strong></span>
                 <span class="temp-day high-temp">2°C</span>
@@ -99,7 +112,11 @@
           </div>
           <div class="daily-weather-details day-4">
             <li>
-              Wed 🌧️
+              Wed
+              <img
+                class="daily-weather-icon"
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              />
               <div>
                 <span class="temp-day low-temp">
                   <strong> 11/</strong>
@@ -110,7 +127,11 @@
           </div>
           <div class="daily-weather-details day-5">
             <li>
-              Thu 🌨️
+              Thu
+              <img
+                class="daily-weather-icon"
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              />
               <div>
                 <span class="temp-day low-temp"> <strong>6/</strong></span>
                 <span class="temp-day high-temp">1°C</span>
@@ -119,7 +140,11 @@
           </div>
           <div class="daily-weather-details day-6">
             <li>
-              Fri 🌧️
+              Fri
+              <img
+                class="daily-weather-icon"
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              />
               <div>
                 <span class="temp-day low-temp"> <strong>7/</strong></span>
                 <span class="temp-day high-temp">3°C</span>

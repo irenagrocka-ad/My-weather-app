@@ -156,6 +156,10 @@ main {
   margin: 10px 0 10px 0;
   padding: 0px;
 }
+.daily-weather-icon {
+  width: 50%;
+  height: 50%;
+}
 .daily-weather-details {
   background-color: #5b3caa;
   color: white;

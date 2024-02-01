@@ -3,23 +3,32 @@ function search(event) {
     let searchInputElement = document.querySelector("#search-input");
     let cityName = capitalizeFirstLetter(searchInputElement.value);
     let cityElement = document.querySelector("#current-city");
+    cityElement.innerHTML = cityName;
 
+    searchCity(cityName);
+}
+function searchCity(city) {
+    let cityName = capitalizeFirstLetter(city);
+    let cityElement = document.querySelector("#current-city");
     cityElement.innerHTML = cityName;
     let key = "3doat099fbcfb24e74ea400f10f43b8a"; // Replace with your actual API key
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${key}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
 
-    axios.get(apiUrl).then(displayWeather);
+    axios.get(apiUrl).then(displayCurrentWeather);
     axios.get(apiUrl)
-        .then(displayWeather)
+        .then(displayCurrentWeather)
         .catch(error => console.error("Error fetching weather data:", error));
     let currentDateELement = document.querySelector("#current-date");
-    let currentDate = new Date();
-    currentDateELement.innerHTML = formatDate(currentDate);
-
 }
+
+searchCity("Wroclaw");
 function capitalizeFirstLetter(string) {
     return string.replace(/\b\w/g, (char) => char.toUpperCase());
 }
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", search);
+
 function formatDate(date) {
     let minutes = date.getMinutes();
     let hours = date.getHours();
@@ -47,11 +56,8 @@ function formatDate(date) {
     return `${formattedDay} ${hours}:${minutes}`;
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
-
-
-function displayWeather(response) {
+function displayCurrentWeather(response) {
+    let currentDate = new Date(response.data.time * 1000);
     let temperature = Math.round(response.data.temperature.current);
     let humidity = response.data.temperature.humidity;
     let wind = Math.round(response.data.wind.speed);
@@ -62,6 +68,8 @@ function displayWeather(response) {
     let currentWind = document.querySelector("#current-wind-speed");
     let currentDescription = document.querySelector("#current-description");
     let currentIcon = document.querySelector("#current-weather-icon");
+    let currentDateELement = document.querySelector("#current-date");
+    currentDateELement.innerHTML = formatDate(currentDate);
 
     currentTemperature.innerHTML = `${temperature}`;
     currentHumidity.innerHTML = `${humidity}%`;

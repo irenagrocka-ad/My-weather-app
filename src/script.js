@@ -10,9 +10,10 @@ function search(event) {
 
 function searchCity(city) {
     let validCities = [
-        "Amsterdam", "Athens", "Belgrade", "Berlin", "Bern", "Bratislava", "Brussels",
-        "Bucharest", "Budapest", "Copenhagen", "Dublin", "Helsinki", "Kiev", "Lisbon", "Ljubljana",
-        "London", "Oslo", "Paris", "Prague", "Reykjavik", "Riga", "Rome", "Sarajevo", "Skopje", "Sofia", "Stockholm", "Tallinn",
+        "Amsterdam", "Athens", "Beijing", "Belgrade", "Berlin", "Bern", "Bratislava", "Brussels", "Bucharest", "Budapest", "Cairo", "Copenhagen", "Delhi",
+        "Dublin", "Helsinki", "Kiev", "Lisbon", "Ljubljana",
+        "London", "Mexico City", "Oslo", "Paris", "Prague", "Reykjavik", "Riga", "Rome", "Sarajevo", "Shanghai",
+        "Skopje", "Sofia", "Stockholm", "Tallinn", "Tokyo",
         , "Vienna", "Vilnius", "Warsaw", "Wroclaw", "Zagreb"
     ];
 

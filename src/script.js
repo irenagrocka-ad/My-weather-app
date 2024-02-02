@@ -26,9 +26,9 @@ function searchCity(city) {
 function capitalizeFirstLetter(string) {
     return string.replace(/\b\w/g, (char) => char.toUpperCase());
 }
-function convertToLowerCase(inputString) {
-    return inputString.toLowerCase();
-}
+//function convertToLowerCase(inputString) {
+//  return inputString.toLowerCase();
+//}
 
 function formatDate(date) {
     let minutes = date.getMinutes();
@@ -81,27 +81,43 @@ function displayCurrentWeather(response) {
 
     getForecast(response.data.city);
 }
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+
+    let days = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+    ];
+    return days[date.getDay()];
+
+}
 function displayForecast(response) {
     console.log(response.data);
 
-    let forecastElement = document.querySelector("#forecast");
-    let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
     let forecastHtml = ""
-    days.forEach(function (day) {
-        forecastHtml = forecastHtml + `
+    response.data.daily.forEach(function (day, index) {
+        if (index < 6) {
+            if (index > 0) {
+                forecastHtml = forecastHtml + `
     <div class="weather-forecast-day">
-        <div class="weather-forecast-date">${day}</div> 
-        <br/>
-                <div class="weather-forecast-icon">🌤️</div> 
-                <br/>
+        <div class="weather-forecast-date">${formatDay(day.time)}</div> 
+                <div><img class="weather-forecast-icon" src="${day.condition.icon_url}" alt="${day.condition.description}"></div>
             <div class="weather-forecast-temperatures">
-                <span class="weather-forecast-temperature"> <strong>6/</strong></span>
-                <span class="weather-forecast-temperature low-temp">1°C</span>
+                <span class="weather-forecast-temperature"> <strong>${Math.round(day.temperature.maximum)}°C/</strong></span>
+                <span class="weather-forecast-temperature-low-temp">${Math.round(day.temperature.minimum)}°C</span>
             </div>
-        </li>
-    </div>
-`;
+        </li >
+    </div >
+            `;
+            }
+        }
     });
+    let forecastElement = document.querySelector("#forecast");
     forecastElement.innerHTML = forecastHtml;
 }
 
@@ -111,6 +127,7 @@ function getForecast(city) {
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`;
     axios.get(apiUrl).then(displayForecast);
 }
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 searchCity("Wroclaw");

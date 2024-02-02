@@ -9,17 +9,34 @@ function search(event) {
 }
 
 function searchCity(city) {
+    let validCities = [
+        "Amsterdam", "Athens", "Belgrade", "Berlin", "Bern", "Bratislava", "Brussels",
+        "Bucharest", "Budapest", "Copenhagen", "Dublin", "Helsinki", "Kiev", "Lisbon", "Ljubljana",
+        "London", "Oslo", "Paris", "Prague", "Reykjavik", "Riga", "Rome", "Sarajevo", "Skopje", "Sofia", "Stockholm", "Tallinn",
+        , "Vienna", "Vilnius", "Warsaw", "Wroclaw", "Zagreb"
+    ];
+
     let cityName = capitalizeFirstLetter(city);
-    let cityElement = document.querySelector("#current-city");
-    cityElement.innerHTML = cityName;
-    let key = "3doat099fbcfb24e74ea400f10f43b8a"; // Replace with your actual API key
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
-    let cityImageElement = document.querySelector("#city-image");
-    cityImageElement.setAttribute("src", `src/images/${city}.jpg`);
-    axios.get(apiUrl).then(displayCurrentWeather);
-    axios.get(apiUrl)
-        .then(displayCurrentWeather)
-        .catch(error => console.error("Error fetching weather data:", error));
+    if (validCities.includes(cityName)) {
+        let cityElement = document.querySelector("#current-city");
+        cityElement.innerHTML = cityName;
+        let key = "3doat099fbcfb24e74ea400f10f43b8a"; // Replace with your actual API key
+        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
+        let cityImageElement = document.querySelector("#city-image");
+        cityImageElement.setAttribute("src", `src/images/${city}.jpg`);
+        axios.get(apiUrl).then(displayCurrentWeather);
+        axios.get(apiUrl)
+            .then(displayCurrentWeather)
+            .catch(error => console.error("Error fetching weather data:", error));
+    } else {
+        console.error("Invalid city entered");
+
+        let defaultImageSrc = "src/images/default-city.jpg";
+        let cityImageElement = document.querySelector("#city-image");
+        cityImageElement.setAttribute("src", `src/images/rainbow.jpg`);
+
+
+    }
 
 }
 

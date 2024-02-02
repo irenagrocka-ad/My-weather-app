@@ -8,7 +8,7 @@ body {
   background-size: cover;
 }
 .weather-app {
-  background: rgba(200, 184, 240, 0.95);
+  background-color: var(--car-color, rgba(90, 60, 170, 0.7));
   border-radius: 20px;
   max-width: 70%;
   max-height: 70%;
@@ -159,10 +159,12 @@ main {
   display: block;
   margin: 0px auto;
   align-items: center;
+  border-color: none;
+  box-shadow: none;
 }
 .weather-forecast-day {
-  background-color: #5b3caa;
-  color: white;
+  background-color: var(--car-color, #5b3caa);
+  color: black;
   font-size: 20px;
   list-style: none;
   padding: 20px 20px;

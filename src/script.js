@@ -10,11 +10,11 @@ function search(event) {
 
 function searchCity(city) {
     let validCities = [
-        "Amsterdam", "Athens", "Beijing", "Belgrade", "Berlin", "Bern", "Bratislava", "Brussels", "Bucharest", "Budapest", "Cairo", "Copenhagen", "Delhi",
-        "Dublin", "Helsinki", "Kiev", "Lisbon", "Ljubljana",
-        "London", "Mexico City", "Oslo", "Paris", "Prague", "Reykjavik", "Riga", "Rome", "Sarajevo", "Shanghai",
-        "Skopje", "Sofia", "Stockholm", "Tallinn", "Tokyo",
-        , "Vienna", "Vilnius", "Warsaw", "Wroclaw", "Zagreb"
+        "Amsterdam", "Athens", "Beijing", "Belgrade", "Berlin", "Bern", "Bratislava", "Brussels", "Bucharest", "Budapest", "Buenos Aires", "Cairo", "Copenhagen", "Delhi",
+        "Dublin", "Helsinki", "Kiev", "Krakow", "Lisbon", "Ljubljana",
+        "London", "Mexico City", "New York", "Oslo", "Ottawa", "Paris", "Prague", "Reykjavik", "Riga", "Rio de Janeiro", "Rome", "Sarajevo", "Shanghai",
+        "Skopje", "Sofia", "Stockholm", "Sydney", "Tallinn", "Tokyo",
+        , "Vienna", "Vilnius", "Washington", "Warsaw", "Wroclaw", "Zagreb"
     ];
 
     let cityName = capitalizeFirstLetter(city);
@@ -44,9 +44,6 @@ function searchCity(city) {
 function capitalizeFirstLetter(string) {
     return string.replace(/\b\w/g, (char) => char.toUpperCase());
 }
-//function convertToLowerCase(inputString) {
-//  return inputString.toLowerCase();
-//}
 
 function formatDate(date) {
     let minutes = date.getMinutes();
@@ -76,6 +73,7 @@ function formatDate(date) {
 }
 
 function displayCurrentWeather(response) {
+    console.log(response.data);
     let cityElement = document.querySelector("#current-city");
     let currentDate = new Date(response.data.time * 1000);
     let temperature = Math.round(response.data.temperature.current);
@@ -83,12 +81,16 @@ function displayCurrentWeather(response) {
     let wind = Math.round(response.data.wind.speed);
     let description = response.data.condition.description;
     let icon = response.data.condition.icon_url;
+    let cardColor = getColor(response.data.condition.icon);
+
     let currentTemperature = document.querySelector("#current-temperature-value");
     let currentHumidity = document.querySelector("#current-humidity-value");
     let currentWind = document.querySelector("#current-wind-speed");
     let currentDescription = document.querySelector("#current-description");
     let currentIcon = document.querySelector("#current-weather-icon");
     let currentDateELement = document.querySelector("#current-date");
+    let weatherAppElement = document.querySelector(".weather-app")
+
     currentDateELement.innerHTML = formatDate(currentDate);
     cityElement.innerHTML = response.data.city;
     currentTemperature.innerHTML = `${temperature}`;
@@ -96,6 +98,7 @@ function displayCurrentWeather(response) {
     currentWind.innerHTML = `${wind}km/h`;
     currentDescription.innerHTML = `${description}`;
     currentIcon.setAttribute("src", icon);
+    weatherAppElement.setAttribute("style", `background-color: ${cardColor};`)
 
     getForecast(response.data.city);
 }
@@ -114,15 +117,46 @@ function formatDay(timestamp) {
     return days[date.getDay()];
 
 }
+function getColor(icon) {
+    if (icon === "clear-sky-day") {
+        return "#fff2cc";
+    } if (icon === "few-clouds-day") {
+        return "#87ceeb";
+    }
+    if (icon === "scattered-clouds-day") {
+        return "#459EC3";
+    }
+    if (icon === "broken-clouds-day") {
+        return "#75BDDB";
+    }
+    if (icon === "shower-rain-day") {
+        return "#5DA8C6"
+    }
+    if (icon === "rain-day") {
+        return "#3d85c6";
+    }
+    if (icon === "thunderstorm-day") {
+        return "#244B78";
+    }
+    if (icon === "snow-day") {
+        return "#ffffff";
+    }
+    if (icon === "mist-day") {
+        return "#C4CBD4";
+    }
+    else {
+        return "rgba(182, 160, 230, 0.7)";
+    }
+}
 function displayForecast(response) {
     console.log(response.data);
-
     let forecastHtml = ""
     response.data.daily.forEach(function (day, index) {
         if (index < 6) {
             if (index > 0) {
+                let cardColor = getColor(day.condition.icon);
                 forecastHtml = forecastHtml + `
-    <div class="weather-forecast-day">
+    <div class="weather-forecast-day" style="background-color: ${cardColor};">
         <div class="weather-forecast-date">${formatDay(day.time)}</div> 
                 <div><img class="weather-forecast-icon" src="${day.condition.icon_url}" alt="${day.condition.description}"></div>
             <div class="weather-forecast-temperatures">

@@ -81,3 +81,27 @@ function displayCurrentWeather(response) {
     currentDescription.innerHTML = `${description}`;
     currentIcon.setAttribute("src", icon);
 }
+function displayForecast() {
+
+    let forecastElement = document.querySelector("#forecast");
+    let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
+    let forecastHtml = ""
+    days.forEach(function (day) {
+        forecastHtml = forecastHtml + `
+    <div class="weather-forecast-day">
+        <div class="weather-forecast-date">${day}</div> 
+        <br/>
+                <div class="weather-forecast-icon">🌤️</div> 
+                <br/>
+            <div class="weather-forecast-temperatures">
+                <span class="weather-forecast-temperature"> <strong>6/</strong></span>
+                <span class="weather-forecast-temperature low-temp">1°C</span>
+            </div>
+        </li>
+    </div>
+`;
+    });
+    forecastElement.innerHTML = forecastHtml;
+}
+
+displayForecast();

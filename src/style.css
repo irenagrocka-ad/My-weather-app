@@ -146,37 +146,37 @@ main {
   padding: 10px 0;
   border-top: 2px solid #885df1;
 }
-.daily-weather-container {
+.weather-forecast {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px 0 10px 0;
-  padding: 0px;
+  padding: 30px auto;
 }
-.daily-weather-icon {
+.weather-forecast-icon {
   width: 50%;
   height: 50%;
   display: block;
   margin: 0px auto;
   align-items: center;
 }
-.daily-weather-details {
+.weather-forecast-day {
   background-color: #5b3caa;
   color: white;
   font-size: 20px;
   list-style: none;
-  padding: 20px 10px;
+  padding: 20px 20px;
   border-radius: 35px;
 
-  display: flex;
+  display: f;
   justify-content: space-between;
   align-items: center;
   text-align: center;
 }
-.low-temp {
+.search-city-form .low-temp {
   opacity: 0.6;
 }
-.daily-weather-details:hover {
+.weather-forecast-day:hover {
   transform: scale(1.3);
 }
 a {

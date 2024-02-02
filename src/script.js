@@ -20,18 +20,15 @@ function searchCity(city) {
     axios.get(apiUrl)
         .then(displayCurrentWeather)
         .catch(error => console.error("Error fetching weather data:", error));
+
 }
 
-searchCity("Wroclaw");
 function capitalizeFirstLetter(string) {
     return string.replace(/\b\w/g, (char) => char.toUpperCase());
 }
 function convertToLowerCase(inputString) {
     return inputString.toLowerCase();
 }
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
 
 function formatDate(date) {
     let minutes = date.getMinutes();
@@ -61,6 +58,7 @@ function formatDate(date) {
 }
 
 function displayCurrentWeather(response) {
+    let cityElement = document.querySelector("#current-city");
     let currentDate = new Date(response.data.time * 1000);
     let temperature = Math.round(response.data.temperature.current);
     let humidity = response.data.temperature.humidity;
@@ -74,14 +72,17 @@ function displayCurrentWeather(response) {
     let currentIcon = document.querySelector("#current-weather-icon");
     let currentDateELement = document.querySelector("#current-date");
     currentDateELement.innerHTML = formatDate(currentDate);
-
+    cityElement.innerHTML = response.data.city;
     currentTemperature.innerHTML = `${temperature}`;
     currentHumidity.innerHTML = `${humidity}%`;
     currentWind.innerHTML = `${wind}km/h`;
     currentDescription.innerHTML = `${description}`;
     currentIcon.setAttribute("src", icon);
+
+    getForecast(response.data.city);
 }
-function displayForecast() {
+function displayForecast(response) {
+    console.log(response.data);
 
     let forecastElement = document.querySelector("#forecast");
     let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
@@ -104,4 +105,12 @@ function displayForecast() {
     forecastElement.innerHTML = forecastHtml;
 }
 
-displayForecast();
+
+function getForecast(city) {
+    let key = "3doat099fbcfb24e74ea400f10f43b8a"; // Replace with your actual API key
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+}
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", search);
+searchCity("Wroclaw");

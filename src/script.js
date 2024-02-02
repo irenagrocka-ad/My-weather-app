@@ -4,26 +4,30 @@ function search(event) {
     let cityName = capitalizeFirstLetter(searchInputElement.value);
     let cityElement = document.querySelector("#current-city");
     cityElement.innerHTML = cityName;
-
     searchCity(cityName);
+
 }
+
 function searchCity(city) {
     let cityName = capitalizeFirstLetter(city);
     let cityElement = document.querySelector("#current-city");
     cityElement.innerHTML = cityName;
     let key = "3doat099fbcfb24e74ea400f10f43b8a"; // Replace with your actual API key
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
-
+    let cityImageElement = document.querySelector("#city-image");
+    cityImageElement.setAttribute("src", `src/images/${city}.jpg`);
     axios.get(apiUrl).then(displayCurrentWeather);
     axios.get(apiUrl)
         .then(displayCurrentWeather)
         .catch(error => console.error("Error fetching weather data:", error));
-    let currentDateELement = document.querySelector("#current-date");
 }
 
 searchCity("Wroclaw");
 function capitalizeFirstLetter(string) {
     return string.replace(/\b\w/g, (char) => char.toUpperCase());
+}
+function convertToLowerCase(inputString) {
+    return inputString.toLowerCase();
 }
 
 let searchForm = document.querySelector("#search-form");

@@ -1,22 +1,19 @@
 body {
+  font-family: "Roboto", sans-serif;
   background-image: url("images/rainbow.jpg");
   background-position: center;
   background-repeat: no-repeat;
-
-  background-color: blue;
   width: 100%;
   height: 100%;
   background-size: cover;
-  font-family: "Roboto", sans-serif;
 }
-
 .weather-app {
-  background: rgba(200, 184, 240, 0.8);
+  background: rgba(200, 184, 240, 0.95);
   border-radius: 20px;
   max-width: 70%;
   max-height: 70%;
   margin: 45px auto;
-  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.45);
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.75);
   border: 0px;
   padding: 30px;
   overflow-y: scroll;
@@ -159,18 +156,25 @@ main {
 .daily-weather-icon {
   width: 50%;
   height: 50%;
+  display: block;
+  margin: 0px auto;
+  align-items: center;
 }
 .daily-weather-details {
   background-color: #5b3caa;
   color: white;
   font-size: 20px;
   list-style: none;
-  padding: 43px 10px;
+  padding: 20px 10px;
   border-radius: 35px;
-  margin: 7px 7px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+}
+.low-temp {
+  opacity: 0.6;
 }
 .daily-weather-details:hover {
   transform: scale(1.3);

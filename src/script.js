@@ -9,8 +9,8 @@ function search(event) {
 function searchCity(city) {
     let validCities = [
         "Amsterdam", "Athens", "Beijing", "Belgrade", "Berlin", "Bern", "Bratislava", "Brussels", "Bucharest", "Budapest", "Buenos Aires", "Cairo", "Copenhagen", "Delhi",
-        "Dublin", "Gdansk", "Helsinki", "Jelenia Gora", "Kiev", "Krakow", "Lisbon", "Ljubljana",
-        "London", "Mexico City", "New York", "Oslo", "Ottawa", "Paris", "Prague", "Reykjavik", "Riga", "Rio de Janeiro", "Rome", "Sarajevo", "Shanghai", "Sheffield",
+        "Dublin", "Edinburgh", "Gdansk", "Helsinki", "Jelenia Gora", "Kiev", "Krakow", "Lisbon", "Ljubljana",
+        "London", "Mexico City", "New York", "Oslo", "Ottawa", "Paris", "Poznan", "Prague", "Reykjavik", "Riga", "Rio de Janeiro", "Rome", "Sao Paulo", "Sarajevo", "Shanghai", "Sheffield",
         "Skopje", "Sofia", "Stockholm", "Sydney", "Tallinn", "Tokyo",
         , "Vienna", "Vilnius", "Washington", "Warsaw", "Wroclaw", "Zagreb"
     ];
@@ -18,12 +18,15 @@ function searchCity(city) {
     let cityName = capitalizeFirstLetter(city);
     if (validCities.includes(cityName)) {
         let cityElement = document.querySelector("#current-city");
+        let bodyElement = document.querySelector("body");
         cityElement.innerHTML = cityName;
         let key = "3doat099fbcfb24e74ea400f10f43b8a"; // Replace with your actual API key
         let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
         let cityImageElement = document.querySelector("#city-image");
         cityImageElement.setAttribute("src", `src/images/${city}.jpg`);
         cityImageElement.setAttribute("alt", `${city} image`);
+        bodyElement.setAttribute("style", `background-image: url("src/images/${city}.jpg");`);
+
         axios.get(apiUrl)
             .then(displayCurrentWeather)
             .catch(error => console.error("Error fetching weather data:", error));
@@ -34,7 +37,10 @@ function searchCity(city) {
 }
 function setDefaultImage() {
     let defaultImageSrc = "src/images/rainbow.jpg";
+    let defaultBackgroundImageSrc = "src/images/rainbow.jpg";
     let cityImageElement = document.querySelector("#city-image");
+    let bodyElement = document.querySelector("body");
+    bodyElement.setAttribute("style", `background-image: url("${defaultBackgroundImageSrc}");`);
     cityImageElement.setAttribute("src", defaultImageSrc);
 }
 function capitalizeFirstLetter(string) {
@@ -115,33 +121,33 @@ function formatDay(timestamp) {
 }
 function getCardColor(icon) {
     if (icon === "clear-sky-day") {
-        return "rgba(248, 237, 130, 0.5)";
+        return "rgba(248, 237, 130, 0.7)";
     } if (icon === "few-clouds-day") {
-        return "rgba(80, 227, 222, 0.5)";
+        return "rgba(80, 227, 222, 0.7)";
     }
     if (icon === "scattered-clouds-day") {
-        return "rgba(117, 229, 229, 0.5)";
+        return "rgba(117, 229, 229, 0.7)";
     }
     if (icon === "broken-clouds-day") {
-        return "rgba(80, 155, 227, 0.5)";
+        return "rgba(80, 155, 227, 0.7)";
     }
     if (icon === "shower-rain-day") {
-        return "rgba(80, 109, 227, 0.5)";
+        return "rgba(80, 109, 227, 0.7)";
     }
     if (icon === "rain-day") {
-        return "rgba(24, 58, 193, 0.5)";
+        return "rgba(24, 58, 193, 0.7)";
     }
     if (icon === "thunderstorm-day") {
-        return "rgba(10, 31, 115, 0.5)";
+        return "rgba(10, 31, 115, 0.7)";
     }
     if (icon === "snow-day") {
-        return "rgba(255 255, 255, 0.5)";
+        return "rgba(255 255, 255, 0.7)";
     }
     if (icon === "mist-day") {
-        return "rgba(193, 194, 200, 0.5)";
+        return "rgba(193, 194, 200, 0.7)";
     }
     else {
-        return "rgba(182, 160, 230, 0.6)";
+        return "rgba(182, 160, 230, 0.7)";
     }
 }
 function getForecastColor(icon) {

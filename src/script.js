@@ -8,11 +8,13 @@ function search(event) {
 }
 function searchCity(city) {
     let validCities = [
-        "Amsterdam", "Athens", "Beijing", "Belgrade", "Berlin", "Bern", "Bratislava", "Brussels", "Bucharest", "Budapest", "Buenos Aires", "Cairo", "Copenhagen", "Delhi",
-        "Dublin", "Edinburgh", "Gdansk", "Helsinki", "Jelenia Gora", "Kiev", "Krakow", "Lisbon", "Ljubljana",
-        "London", "Mexico City", "New York", "Oslo", "Ottawa", "Paris", "Poznan", "Prague", "Reykjavik", "Riga", "Rio de Janeiro", "Rome", "Sao Paulo", "Sarajevo", "Shanghai", "Sheffield",
-        "Skopje", "Sofia", "Stockholm", "Sydney", "Tallinn", "Tokyo",
-        , "Vienna", "Vilnius", "Washington", "Warsaw", "Wroclaw", "Zagreb"
+        "Amsterdam", "Athens", "Barcelona", "Beijing", "Belgrade", "Berlin", "Bern", "Birmingham", "Bratislava", "Brussels", "Bucharest", "Budapest",
+        "Buenos Aires", "Cairo", "Chicago", "Copenhagen", "Delhi",
+        "Dublin", "Edinburgh", "Gdansk", "Helsinki", "Jelenia Gora", "Kiev", "Krakow", "Leeds", "Lisbon", "Ljubljana",
+        "London", "Manchester", "Mexico City", "New York", "Nottingham", "Oslo", "Ottawa", "Paris", "Poznan", "Prague", "Reykjavik", "Riga",
+        "Rio de Janeiro", "Rome", "Sao Paulo", "Sarajevo", "Shanghai", "Sheffield",
+        "Skopje", "Sofia", "Stockholm", "Sydney", "Tallinn", "Tokyo", "Toronto",
+        , "Vienna", "Vilnius", "Washington", "Warsaw", "Wroclaw", "York", "Zagreb"
     ];
 
     let cityName = capitalizeFirstLetter(city);
@@ -178,7 +180,7 @@ function getForecastColor(icon) {
         return "rgba(193, 194, 200)";
     }
     else {
-        return "rgba(182, 160, 230)";
+        return "rgba(119, 20, 207)";
     }
 }
 function getFontColor(icon) {

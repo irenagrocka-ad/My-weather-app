@@ -10,8 +10,8 @@ body {
 .weather-app {
   background-color: var(--card-color, rgba(90, 60, 170, 0.7));
   border-radius: 20px;
-  max-width: 70%;
-  max-height: 70%;
+  max-width: 65%;
+  max-height: 65%;
   margin: 45px auto;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.75);
   border: 0px;

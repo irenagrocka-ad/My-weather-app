@@ -1,3 +1,7 @@
+/**
+ * Function to handle the search form submission.
+ * @param {Event} event - The form submission event.
+ */
 function search(event) {
     event.preventDefault();
     let searchInputElement = document.querySelector("#search-input");
@@ -6,6 +10,10 @@ function search(event) {
     cityElement.innerHTML = cityName;
     searchCity(cityName);
 }
+/**
+ * Function to search for weather data of a city.
+ * @param {string} city - The name of the city to search for.
+ */
 function searchCity(city) {
     let validCities = [
         "Amsterdam", "Athens", "Barcelona", "Beijing", "Belgrade", "Berlin", "Bern", "Birmingham", "Bratislava", "Brussels", "Bucharest", "Budapest",
@@ -18,6 +26,7 @@ function searchCity(city) {
     ];
 
     let cityName = capitalizeFirstLetter(city);
+    // Fetch weather data for the city
     if (validCities.includes(cityName)) {
         let cityElement = document.querySelector("#current-city");
         let bodyElement = document.querySelector("body");
@@ -45,9 +54,19 @@ function setDefaultImage() {
     bodyElement.setAttribute("style", `background-image: url("${defaultBackgroundImageSrc}");`);
     cityImageElement.setAttribute("src", defaultImageSrc);
 }
+/**
+ * Function to capitalize the first letter of a string.
+ * @param {string} string - The input string.
+ * @returns {string} - The string with the first letter capitalized.
+ */
 function capitalizeFirstLetter(string) {
     return string.replace(/\b\w/g, (char) => char.toUpperCase());
 }
+/**
+ * Function to format the date.
+ * @param {Date} date - The input date.
+ * @returns {string} - The formatted date.
+ */
 function formatDate(date) {
     let minutes = date.getMinutes();
     let hours = date.getHours();
@@ -70,6 +89,10 @@ function formatDate(date) {
     let formattedDay = days[day];
     return `${formattedDay} ${hours}:${minutes}`;
 }
+/**
+ * Function to display the current weather.
+ * @param {Object} response - The response containing weather data.
+ */
 function displayCurrentWeather(response) {
     console.log(response.data);
     let cityElement = document.querySelector("#current-city");
@@ -121,6 +144,10 @@ function formatDay(timestamp) {
     return days[date.getDay()];
 
 }
+/**
+ * Function to change .
+ * @param {Object} response - The response containing weather data.
+ */
 function getCardColor(icon) {
     if (icon === "clear-sky-day") {
         return "rgba(248, 237, 130, 0.7)";
@@ -152,6 +179,10 @@ function getCardColor(icon) {
         return "rgba(182, 160, 230, 0.7)";
     }
 }
+/**
+ * Function to change forecast card color.
+ * @param {Object} response - The response containing weather data.
+ */
 function getForecastColor(icon) {
     if (icon === "clear-sky-day") {
         return "rgba(237, 202, 96)";
@@ -183,6 +214,10 @@ function getForecastColor(icon) {
         return "rgba(119, 20, 207)";
     }
 }
+/**
+ * Function to change font color.
+ * @param {Object} response - The response containing weather data.
+ */
 function getFontColor(icon) {
     if (icon === "clear-sky-day" || icon === "few-clouds-day" || icon === "scattered-clouds-day" || icon === "broken-clouds-day" || icon === "snow-day") {
         return "rgba(0, 0, 0)";
@@ -191,6 +226,10 @@ function getFontColor(icon) {
         return "rgba(255, 255, 255)";
     }
 }
+/**
+ * Display the weather forecast for the next 5 days.
+ * @param {Object} response - The response containing forecast data.
+ */
 function displayForecast(response) {
     console.log(response.data);
     let forecastHtml = ""
@@ -216,12 +255,20 @@ function displayForecast(response) {
     let forecastElement = document.querySelector("#forecast");
     forecastElement.innerHTML = forecastHtml;
 }
+/**
+ * Get the weather forecast data for a specific city.
+ * @param {string} city - The name of the city to get the forecast for.
+ */
 function getForecast(city) {
     let key = "3doat099fbcfb24e74ea400f10f43b8a"; // Replace with your actual API key
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`;
     axios.get(apiUrl).then(displayForecast);
 }
-
+// Event listener for the search form submission
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
+/**
+ * Function to display the current weather.
+ * @param {Object} response - The response containing weather data.
+ */
 searchCity("Wroclaw");

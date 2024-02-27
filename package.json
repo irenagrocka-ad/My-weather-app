@@ -1,0 +1,14 @@
+{
+  "name": "my-weather-app",
+  "version": "1.0.0",
+  "description": "This is a weather application that allows users to search for weather data of different cities. Users can enter a city name in the search box and get the current weather information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.6"
+  }
+}

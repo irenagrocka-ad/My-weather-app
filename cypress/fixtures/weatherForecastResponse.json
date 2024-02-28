@@ -1,0 +1,129 @@
+{
+  "city": "Rome",
+  "country": "Italy",
+  "coordinates": {
+    "longitude": 12.4829321,
+    "latitude": 41.8933203
+  },
+  "daily": [
+    {
+      "condition": {
+        "description": "light rain",
+        "icon_url": "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png",
+        "icon": "rain-day"
+      },
+      "temperature": {
+        "day": 15.89,
+        "minimum": 11.16,
+        "maximum": 19.67,
+        "humidity": 67
+      },
+      "wind": {
+        "speed": 4.32
+      },
+      "time": 1709118000
+    },
+    {
+      "condition": {
+        "description": "moderate rain",
+        "icon_url": "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png",
+        "icon": "rain-day"
+      },
+      "temperature": {
+        "day": 14.4,
+        "minimum": 10.28,
+        "maximum": 14.92,
+        "humidity": 72
+      },
+      "wind": {
+        "speed": 2.92
+      },
+      "time": 1709204400
+    },
+    {
+      "condition": {
+        "description": "light rain",
+        "icon_url": "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png",
+        "icon": "rain-day"
+      },
+      "temperature": {
+        "day": 14.61,
+        "minimum": 9.59,
+        "maximum": 14.61,
+        "humidity": 61
+      },
+      "wind": {
+        "speed": 3.47
+      },
+      "time": 1709290800
+    },
+    {
+      "condition": {
+        "description": "light rain",
+        "icon_url": "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png",
+        "icon": "rain-day"
+      },
+      "temperature": {
+        "day": 14.95,
+        "minimum": 8.95,
+        "maximum": 14.95,
+        "humidity": 65
+      },
+      "wind": {
+        "speed": 3.85
+      },
+      "time": 1709377200
+    },
+    {
+      "condition": {
+        "description": "heavy intensity rain",
+        "icon_url": "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png",
+        "icon": "rain-day"
+      },
+      "temperature": {
+        "day": 14.65,
+        "minimum": 9.5,
+        "maximum": 14.65,
+        "humidity": 67
+      },
+      "wind": {
+        "speed": 10.16
+      },
+      "time": 1709463600
+    },
+    {
+      "condition": {
+        "description": "light rain",
+        "icon_url": "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png",
+        "icon": "rain-day"
+      },
+      "temperature": {
+        "day": 12.07,
+        "minimum": 6.92,
+        "maximum": 12.07,
+        "humidity": 67
+      },
+      "wind": {
+        "speed": 4.55
+      },
+      "time": 1709550000
+    },
+    {
+      "condition": {
+        "description": "overcast clouds",
+        "icon_url": "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png",
+        "icon": "broken-clouds-day"
+      },
+      "temperature": {
+        "day": 14.42,
+        "minimum": 6.46,
+        "maximum": 14.42,
+        "humidity": 53
+      },
+      "wind": {
+        "speed": 2.24
+      },
+      "time": 1709636400
+    }
+  ]
+}

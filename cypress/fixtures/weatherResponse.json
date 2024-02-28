@@ -1,0 +1,24 @@
+{
+  "city": "Rome",
+  "country": "Italy",
+  "coordinates": {
+    "longitude": 12.4829321,
+    "latitude": 41.8933203
+  },
+  "condition": {
+    "description": "few clouds",
+    "icon_url": "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png",
+    "icon": "few-clouds-day"
+  },
+  "temperature": {
+    "current": 14.53,
+    "humidity": 79,
+    "feels_like": 14.1,
+    "pressure": 1009
+  },
+  "wind": {
+    "speed": 2.57,
+    "degree": 80
+  },
+  "time": 1709109638
+}
